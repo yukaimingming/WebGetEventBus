@@ -51,7 +51,7 @@ namespace WebGetEventBus.Controllers
 
         // POST api/<EventBusController>
         /// <summary>
-        ///   接收eventbusdata数据
+        ///  接收eventbusdata数据
         /// </summary>
         /// <param name="value">
         /// </param>
