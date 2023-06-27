@@ -33,7 +33,7 @@ namespace WebGetEventBus.common
         #region Methods
 
         /// <summary>
-        ///   对xml节点进行换行，格式化对齐操作
+        ///  对xml节点进行换行，格式化对齐操作
         /// </summary>
         /// <param name="srcXml">
         /// </param>
@@ -80,7 +80,7 @@ namespace WebGetEventBus.common
             foreach (var item in str.data.subs)
             {
                 stringBuilder.Append("<salesitem>\r\n\t\t\t\t\t\t");
-                stringBuilder.Append("<itemcode>" + Configuration["header:itemcode"] + "</itemcode>\r\n\t\t\t\t\t\t");//商品编号/货号
+                stringBuilder.Append("<itemcode>" + item.clothing_id + "</itemcode>\r\n\t\t\t\t\t\t");//商品编号/货号
                 stringBuilder.Append("<qty>" + item.nums + "</qty>\r\n\t\t\t\t\t\t");//数量退货时数量为负
                 stringBuilder.Append("<netamount>" + item.billsub_ssum + "</netamount>\r\n\t\t\t\t\t");//净金额
                 stringBuilder.Append("</salesitem>\r\n\t\t\t\t\t");
@@ -124,7 +124,7 @@ namespace WebGetEventBus.common
         }
 
         /// <summary>
-        ///   对XML字符串进行换行缩进，格式化
+        ///  对XML字符串进行换行缩进，格式化
         /// </summary>
         /// <param name="xml">
         /// </param>
@@ -151,7 +151,7 @@ namespace WebGetEventBus.common
         }
 
         /// <summary>
-        ///   写入四个缩进字符【空格】
+        ///  写入四个缩进字符【空格】
         /// </summary>
         /// <returns>
         /// </returns>
