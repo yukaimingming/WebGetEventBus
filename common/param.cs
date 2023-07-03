@@ -97,7 +97,7 @@ namespace WebGetEventBus.common
                         stringBuilder.Append("<tendercode>CH</tendercode>\r\n\t\t\t\t\t\t");
                         break;
 
-                    case "Bank cards":
+                    case "BANKCARD":
                         stringBuilder.Append("<tendercode>CI</tendercode>\r\n\t\t\t\t\t\t");
                         break;
 
@@ -107,6 +107,10 @@ namespace WebGetEventBus.common
 
                     case "Wechat":
                         stringBuilder.Append("<tendercode>WX</tendercode>\r\n\t\t\t\t\t\t");
+                        break;
+
+                    default:
+                        stringBuilder.Append("<tendercode>OT</tendercode>\r\n\t\t\t\t\t\t");
                         break;
                 }
 
