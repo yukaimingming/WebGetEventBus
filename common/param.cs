@@ -8,6 +8,13 @@ namespace WebGetEventBus.common
     {
         #region Methods
 
+        /// <summary>
+        ///  对xml节点进行换行，格式化对齐操作
+        /// </summary>
+        /// <param name="srcXml">
+        /// </param>
+        /// <returns>
+        /// </returns>
         string GetXml(Root? root);
 
         #endregion Methods
@@ -32,13 +39,6 @@ namespace WebGetEventBus.common
 
         #region Methods
 
-        /// <summary>
-        ///  对xml节点进行换行，格式化对齐操作
-        /// </summary>
-        /// <param name="srcXml">
-        /// </param>
-        /// <returns>
-        /// </returns>
         public static string FormatXml(string srcXml)
         {
             string formattedXml = IndentedFormat(IndentedFormat(srcXml).Replace("><", ">\r\n<"));
@@ -70,14 +70,14 @@ namespace WebGetEventBus.common
             stringBuilder.Append("<tillid>01</tillid>\r\n\t\t\t\t\t");
             stringBuilder.Append("<txdocno>" + str?.data?.main?.x2_bill_id + "</txdocno>\r\n\t\t\t\t\t");
 
-            foreach (var item in str.data.retail_clerks)
+            foreach (var item in str!.data!.retail_clerks!)
             {
                 stringBuilder.Append("<cashier>" + item.clerk_id + "</cashier>\r\n\t\t\t\t\t");
                 stringBuilder.Append("<salesman>" + item.clerk_name + "</salesman>\r\n\t\t\t\t\t");
             }
             stringBuilder.Append("</salestotal>\r\n\t\t\t");
             stringBuilder.Append("<salesitems>\r\n\t\t\t\t\t");
-            foreach (var item in str.data.subs)
+            foreach (var item in str!.data!.subs!)
             {
                 stringBuilder.Append("<salesitem>\r\n\t\t\t\t\t\t");
                 stringBuilder.Append("<itemcode>" + item.clothing_id + "</itemcode>\r\n\t\t\t\t\t\t");//商品编号/货号
@@ -87,7 +87,7 @@ namespace WebGetEventBus.common
             }
             stringBuilder.Append("</salesitems>\r\n\t\t\t\t");
             stringBuilder.Append("<salestenders>\r\n\t\t\t\t\t");
-            foreach (var item in str.data.retail_pays)
+            foreach (var item in str!.data!.retail_pays!)
             {
                 stringBuilder.Append("<salestender>\r\n\t\t\t\t\t\t");
 
@@ -101,11 +101,11 @@ namespace WebGetEventBus.common
                         stringBuilder.Append("<tendercode>CI</tendercode>\r\n\t\t\t\t\t\t");
                         break;
 
-                    case "Alipay":
+                    case "ZFBSK":
                         stringBuilder.Append("<tendercode>AP</tendercode>\r\n\t\t\t\t\t\t");
                         break;
 
-                    case "Wechat":
+                    case "WXSK":
                         stringBuilder.Append("<tendercode>WX</tendercode>\r\n\t\t\t\t\t\t");
                         break;
 

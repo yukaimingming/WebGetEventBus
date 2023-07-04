@@ -68,7 +68,7 @@ namespace WebGetEventBus.Controllers
 
                 var newvalue = value?.ToString()?.Replace("\"{", "{").Replace("}\"", "}").Replace("\\", "");
 
-                Root? obj = JsonConvert.DeserializeObject<Root>(newvalue);
+                Root? obj = JsonConvert.DeserializeObject<Root>(newvalue!);
 
                 var depot_code = obj?.data?.main?.set_depot_id;
 
@@ -87,7 +87,7 @@ namespace WebGetEventBus.Controllers
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri(_Configuration["header:weburl"].ToString()),
+                    RequestUri = new Uri(_Configuration["header:weburl"]!),
                     Content = new StringContent(soapxml)
                     {
                         Headers =
@@ -101,7 +101,7 @@ namespace WebGetEventBus.Controllers
                     // response.EnsureSuccessStatusCode();
                     var body = await response.Content.ReadAsStringAsync();
                     _logger.LogInformation(body);
-                    return await Task.Run(() => Ok(body));
+                    return Ok(body);
                 }
             }
             catch (Exception ex)
