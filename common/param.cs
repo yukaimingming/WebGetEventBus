@@ -68,7 +68,7 @@ namespace WebGetEventBus.common
             stringBuilder.Append("<mallid>" + Configuration["header:mallid"] + "</mallid>\r\n\t\t\t\t\t");
             stringBuilder.Append("<storecode>" + Configuration["header:storecode"] + "</storecode>\r\n\t\t\t\t\t");
             stringBuilder.Append("<tillid>01</tillid>\r\n\t\t\t\t\t");
-            stringBuilder.Append("<txdocno>" + str?.data?.main?.x2_bill_id + "</txdocno>\r\n\t\t\t\t\t");
+            stringBuilder.Append("<txdocno>" + str!.data!.main!.x2_bill_id + "</txdocno>\r\n\t\t\t\t\t");
 
             foreach (var item in str!.data!.retail_clerks!)
             {
