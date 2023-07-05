@@ -80,7 +80,7 @@ namespace WebGetEventBus.common
             foreach (var item in str!.data!.subs!)
             {
                 stringBuilder.Append("<salesitem>\r\n\t\t\t\t\t\t");
-                stringBuilder.Append("<itemcode>" + item.clothing_id + "</itemcode>\r\n\t\t\t\t\t\t");//商品编号/货号
+                stringBuilder.Append("<itemcode>" + Configuration["header:itemcode"] + "</itemcode>\r\n\t\t\t\t\t\t");//商品编号/货号
                 stringBuilder.Append("<qty>" + item.nums + "</qty>\r\n\t\t\t\t\t\t");//数量退货时数量为负
                 stringBuilder.Append("<netamount>" + item.billsub_ssum + "</netamount>\r\n\t\t\t\t\t");//净金额
                 stringBuilder.Append("</salesitem>\r\n\t\t\t\t\t");
